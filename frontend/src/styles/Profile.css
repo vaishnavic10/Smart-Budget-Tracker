@@ -1,0 +1,109 @@
+/* Centered Modal Styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(83, 161, 212);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: rgb(83, 161, 212);
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #e0e4ed; /* Dark Blue */
+}
+
+.modal-content input,
+.modal-content select {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.modal-content button {
+  width: 95%;
+  padding: 8px;
+  margin-top: 10px;
+  background-color: #1e3a8a; /* Dark Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-content button:hover {
+  background-color: #153075;
+}
+
+/* Overlay Effect for Modal */
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Table Styling */
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgb(110, 179, 225);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.transaction-table th {
+  background-color: #172f70; /* Dark Blue */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.transaction-table tbody tr:nth-child(even) {
+  background-color: #f1f5f9; /* Light Gray */
+}
+
+
+.transaction-table td {
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
