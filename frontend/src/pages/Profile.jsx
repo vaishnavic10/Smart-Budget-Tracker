@@ -48,19 +48,19 @@ const Profile = () => {
       return;
     }
 
-    // ✅ Convert date to ISO format before submitting
-    const formattedDate = new Date(formData.date).toISOString();
+    if (!formData.title || !formData.amount || !formData.category || !formData.transactionType || !formData.date) {
+      alert("All fields are required!");
+      return;
+    }
 
+    const formattedDate = new Date(formData.date).toISOString();
     const transactionData = { ...formData, userId, date: formattedDate };
-    console.log("🔹 Submitting transaction:", transactionData);
 
     try {
       const response = await axios.post("http://localhost:5000/api/transactions/add", transactionData);
-
-      // ✅ Add the new transaction directly to state instead of refetching
       setTransactions((prevTransactions) => [response.data.transaction, ...prevTransactions]);
 
-      // ✅ Reset form and close modal
+      // Reset form and close modal
       setFormData({
         title: "",
         amount: "",
@@ -73,7 +73,7 @@ const Profile = () => {
       setShowModal(false);
     } catch (error) {
       console.error("❌ Error adding transaction:", error.response?.data || error.message);
-      alert("Error adding transaction. Check console for details.");
+      alert(`Error adding transaction: ${error.response?.data?.error || error.message}`);
     }
   };
 
@@ -128,7 +128,6 @@ const Profile = () => {
           <tbody>
             {transactions.map((tx) => (
               <tr key={tx._id}>
-                {/* ✅ Fix: Ensure the date is formatted properly */}
                 <td>{tx.date ? new Date(tx.date).toLocaleDateString() : "Invalid Date"}</td>
                 <td>{tx.title}</td>
                 <td>${tx.amount}</td>
