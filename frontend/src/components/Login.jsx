@@ -17,8 +17,8 @@ const Login = () => {
       });
 
       if (response.data.user) {
-        localStorage.setItem("userId", response.data.user._id); // ✅ Store user ID
-        navigate("/profile"); // ✅ Redirect after login
+        localStorage.setItem("userId", response.data.user._id); 
+        navigate("/profile"); 
       } else {
         setError("Invalid credentials. Please try again.");
       }
