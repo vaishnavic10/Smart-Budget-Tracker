@@ -1,0 +1,250 @@
+/* ========== Page Layout ========== */
+.settings-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 80px auto 50px;
+  padding-bottom: 30px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+/* ========== Content Grid ========== */
+.settings-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* ========== Glassmorphism + Neumorphism Card ========== */
+.settings-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    6px 6px 15px rgba(0, 0, 0, 0.08),
+    -6px -6px 15px rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  padding: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    10px 10px 20px rgba(0, 0, 0, 0.12),
+    -6px -6px 15px rgba(255, 255, 255, 1);
+}
+
+/* ========== Card Header ========== */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.header-icon {
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #34495e;
+  font-size: 22px;
+  box-shadow:
+    inset 3px 3px 7px rgba(0, 0, 0, 0.1),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.9);
+}
+
+.card-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3e50;
+}
+
+/* ========== Input Fields ========== */
+.card-body .form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #34495e;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  color: #2c3e50;
+
+  background: #ffffff;
+  box-shadow:
+    inset 3px 3px 7px rgba(0, 0, 0, 0.08),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.9);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  box-shadow:
+    inset 3px 3px 7px rgba(0, 0, 0, 0.12),
+    inset -3px -3px 7px rgba(255, 255, 255, 1);
+}
+
+/* ========== Toggle Switch Section ========== */
+.toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 15px 18px;
+  border-radius: 14px;
+  box-shadow:
+    4px 4px 10px rgba(0, 0, 0, 0.06),
+    -4px -4px 10px rgba(255, 255, 255, 0.9);
+}
+
+.toggle-info label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.toggle-info p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #6c7a89;
+}
+
+/* ========== Toggle Switch ========== */
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 26px;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background: #bdc3c7;
+  border-radius: 34px;
+  transition: 0.3s ease;
+  box-shadow:
+    inset 2px 2px 7px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 7px rgba(255, 255, 255, 1);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  box-shadow:
+    2px 2px 6px rgba(0, 0, 0, 0.15),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+}
+
+input:checked + .slider {
+  background: #4b7bec;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+/* ========== Action Buttons ========== */
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 12px 22px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  background: #4b7bec;
+  color: white;
+  box-shadow:
+    4px 4px 10px rgba(0, 0, 0, 0.15),
+    -4px -4px 10px rgba(255, 255, 255, 1);
+}
+
+.btn-primary:hover {
+  background: #3867d6;
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+  box-shadow:
+    4px 4px 10px rgba(0, 0, 0, 0.15),
+    -4px -4px 10px rgba(255, 255, 255, 1);
+}
+
+.btn-secondary:hover {
+  background: #7f8c8d;
+}
+
+/* ========== Responsive ========== */
+@media (min-width: 768px) {
+  .settings-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .settings-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
